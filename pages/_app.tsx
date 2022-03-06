@@ -1,22 +1,22 @@
 import "../src/style/index.css";
 
-import type { CustomAppProps } from "next/app";
+import type { AppProps } from "next/app";
 import Head from "next/head";
+import { ThemeProvider } from "next-themes";
+import { Layout } from "src/layout";
 
-const MyApp = (props: CustomAppProps) => {
-  const getLayout =
-    props.Component.getLayout ||
-    ((page) => {
-      return page;
-    });
-
+const MyApp = (props: AppProps) => {
   return (
     <>
       <Head>
         <meta name="description" content="Starter Template by Next.js and TailwindCSS." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {getLayout(<props.Component {...props.pageProps} />)}
+      <ThemeProvider attribute="class" defaultTheme="light">
+        <Layout>
+          <props.Component {...props.pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   );
 };
