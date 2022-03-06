@@ -1,7 +1,7 @@
 import renderer from "react-test-renderer";
 
-import About from "../pages/about";
 import Index from "../pages/index";
+import Profile from "../pages/profile";
 
 it("renders index unchanged", () => {
   const tree = renderer.create(<Index />).toJSON();
@@ -9,6 +9,6 @@ it("renders index unchanged", () => {
 });
 
 it("renders about unchanged", () => {
-  const tree = renderer.create(<About />).toJSON();
+  const tree = renderer.create(<Profile />).toJSON();
   expect(tree).toMatchSnapshot();
 });
