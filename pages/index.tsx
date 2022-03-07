@@ -45,7 +45,7 @@ const Home: NextPage = () => {
       title: "Next Starter",
       description: "",
       imageURL: "/next-starter.png",
-      href: "",
+      href: "https://next-starter-tawny.vercel.app/",
       github: "https://github.com/OpenFruits/next-starter",
     },
     {
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
       title: "Parable Box",
       description: "",
       imageURL: "/dualing.png",
-      href: "",
+      href: "https://parable-box.vercel.app/",
       github: "https://github.com/OpenFruits/parable-box",
     },
     {
