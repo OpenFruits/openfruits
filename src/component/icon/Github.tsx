@@ -1,6 +1,6 @@
 import type { VFC } from "react";
 
-export const GitHubIcon: VFC<{ fill: string; size: number }> = (props) => {
+export const GithubIcon: VFC<{ fill: string; size: number }> = (props) => {
   return (
     <svg role="img" fill={props.fill} width={props.size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <title>GitHub</title>
