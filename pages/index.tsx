@@ -43,34 +43,29 @@ const Home: NextPage = () => {
   const PROJECT_ITEMS = [
     {
       title: "Next Starter",
-      description: "",
       imageURL: "/next-starter.png",
       href: "https://next-starter-tawny.vercel.app/",
       github: "https://github.com/OpenFruits/next-starter",
     },
     {
       title: "Next Sandbox",
-      description: "",
       imageURL: "/next-sandbox.png",
       href: "https://next-sandbox-eight.vercel.app/",
       github: "https://github.com/OpenFruits/next-sandbox",
     },
     {
       title: "Parable Box",
-      description: "",
-      imageURL: "/dualing.png",
+      imageURL: "/parable-box.png",
       href: "https://parable-box.vercel.app/",
       github: "https://github.com/OpenFruits/parable-box",
     },
     {
       title: "Dualing.app",
-      description: "体育会就活マッチングサービス",
       imageURL: "/dualing.png",
       href: "https://www.dualing.app/",
     },
     {
       title: "WithAth-hp",
-      description: "株式会社ウィズアスのホームページ",
       imageURL: "/withath-hp.jpeg",
       href: "https://with-ath.vercel.app/",
       github: "https://github.com/OpenFruits/withath-hp",
