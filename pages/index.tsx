@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -104,46 +105,43 @@ const Home: NextPage = () => {
         </ul>
       )}
       <h2 className="py-2 text-xl">Projects</h2>
-      {isLoadingProjects ? (
-        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3">
-          {[...Array(PROJECT_ITEMS.length)].map((_, index) => (
-            <li key={`loading_${index}`} className="max-w-[230px] bg-slate-200 rounded-sm border animate-pulse">
-              <div className="h-[173px]" />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3">
-          {PROJECT_ITEMS.map((item) => (
-            <li key={item.title} className="max-w-[230px] text-gray-700 dark:bg-slate-100 rounded-sm border">
-              <div className="grid place-items-center h-24">
-                <Image src={item.imageURL || ""} alt={item.title} width={230} height={96} />
-              </div>
-              <p className="p-2 text-sm border-t dark:border-slate-300">{item.title}</p>
-              <div className="flex gap-4 justify-center mb-2 text-sm">
-                {item.github ? (
-                  <Link href={item.github}>
-                    <a target="_blank" rel="noreferrer">
-                      <button className="flex gap-2 items-center p-1 hover:text-white hover:bg-slate-800 rounded-md border border-gray-500">
-                        <GithubOutlineIcon fill="none" size={20} />
-                        Github
-                      </button>
-                    </a>
-                  </Link>
-                ) : null}
-                <Link href={item.href}>
+      <ul className={clsx("grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3", !isLoadingProjects && "hidden")}>
+        {[...Array(PROJECT_ITEMS.length)].map((_, index) => (
+          <li key={`loading_${index}`} className="max-w-[230px] bg-slate-200 rounded-sm border animate-pulse">
+            <div className="h-[173px]" />
+          </li>
+        ))}
+      </ul>
+      <ul className={clsx("grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3", isLoadingProjects && "hidden")}>
+        {PROJECT_ITEMS.map((item) => (
+          <li key={item.title} className="max-w-[230px] text-gray-700 dark:bg-slate-100 rounded-sm border">
+            <div className="grid place-items-center h-24">
+              <Image src={item.imageURL || ""} alt={item.title} width={230} height={96} />
+            </div>
+            <p className="p-2 text-sm border-t dark:border-slate-300">{item.title}</p>
+            <div className="flex gap-4 justify-center mb-2 text-sm">
+              {item.github ? (
+                <Link href={item.github}>
                   <a target="_blank" rel="noreferrer">
-                    <button className="flex gap-2 items-center p-1 hover:text-white hover:bg-emerald-500 rounded-md border border-gray-500 hover:border-transparent">
-                      <LinkIcon fill="none" size={20} />
-                      Link
+                    <button className="flex gap-2 items-center p-1 hover:text-white hover:bg-slate-800 rounded-md border border-gray-500">
+                      <GithubOutlineIcon fill="none" size={20} />
+                      Github
                     </button>
                   </a>
                 </Link>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+              ) : null}
+              <Link href={item.href}>
+                <a target="_blank" rel="noreferrer">
+                  <button className="flex gap-2 items-center p-1 hover:text-white hover:bg-emerald-500 rounded-md border border-gray-500 hover:border-transparent">
+                    <LinkIcon fill="none" size={20} />
+                    Link
+                  </button>
+                </a>
+              </Link>
+            </div>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
