@@ -13,8 +13,8 @@ const Experience: NextPage = () => {
       <div className="prose">
         <h4 className={textClass}>2020.05 - 2020.09</h4>
         <ul className={textClass}>
-          <li>案件：社内ツールの開発</li>
-          <li>担当業務：</li>
+          <li>案件：生産管理システムの開発</li>
+          <li>担当業務：機能追加、プログラム修正</li>
           <li>使用技術：Java</li>
         </ul>
         <h4 className={textClass}>2020-9 - 2021-3</h4>
