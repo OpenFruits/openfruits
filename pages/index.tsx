@@ -1,8 +1,12 @@
-import clsx from "clsx";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import DualingImage from "public/dualing.png";
+import NextSandboxImage from "public/next-sandbox.png";
+import NextStaterImage from "public/next-starter.png";
+import ParableBoxImage from "public/parable-box.png";
+import WithAthHPImage from "public/withath-hp.jpeg";
 import { useEffect, useState } from "react";
 import { GithubIcon } from "src/component/icon/Github";
 import { GithubOutlineIcon } from "src/component/icon/GithubOutline";
@@ -11,16 +15,12 @@ import { TwitterIcon } from "src/component/icon/Twitter";
 import { ZennIcon } from "src/component/icon/Zenn";
 
 const Home: NextPage = () => {
-  const [isLoadingLinks, setIsLoadingLinks] = useState(true);
-  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setIsLoadingLinks(false);
+      setIsLoading(false);
     }, 500);
-    setTimeout(() => {
-      setIsLoadingProjects(false);
-    }, 1000);
   }, []);
 
   const LINK_ITEMS = [
@@ -44,30 +44,30 @@ const Home: NextPage = () => {
   const PROJECT_ITEMS = [
     {
       title: "Next Starter",
-      imageURL: "/next-starter.png",
+      image: NextStaterImage,
       href: "https://next-starter-tawny.vercel.app/",
       github: "https://github.com/OpenFruits/next-starter",
     },
     {
       title: "Next Sandbox",
-      imageURL: "/next-sandbox.png",
+      image: NextSandboxImage,
       href: "https://next-sandbox-eight.vercel.app/",
       github: "https://github.com/OpenFruits/next-sandbox",
     },
     {
       title: "Parable Box",
-      imageURL: "/parable-box.png",
+      image: ParableBoxImage,
       href: "https://parable-box.vercel.app/",
       github: "https://github.com/OpenFruits/parable-box",
     },
     {
       title: "Dualing.app",
-      imageURL: "/dualing.png",
+      image: DualingImage,
       href: "https://www.dualing.app/",
     },
     {
       title: "WithAth-hp",
-      imageURL: "/withath-hp.jpeg",
+      image: WithAthHPImage,
       href: "https://with-ath.vercel.app/",
       github: "https://github.com/OpenFruits/withath-hp",
     },
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
         <title>OpenFruits | Home</title>
       </Head>
       <h2 className="pb-2 text-xl">Links</h2>
-      {isLoadingLinks ? (
+      {isLoading ? (
         <ul className="grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3">
           {[...Array(LINK_ITEMS.length)].map((_, index) => (
             <li key={`loading_${index}`} className="max-w-[230px] bg-slate-200 rounded-sm border animate-pulse">
@@ -105,18 +105,11 @@ const Home: NextPage = () => {
         </ul>
       )}
       <h2 className="py-2 text-xl">Projects</h2>
-      <ul className={clsx("grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3", !isLoadingProjects && "hidden")}>
-        {[...Array(PROJECT_ITEMS.length)].map((_, index) => (
-          <li key={`loading_${index}`} className="max-w-[230px] bg-slate-200 rounded-sm border animate-pulse">
-            <div className="h-[173px]" />
-          </li>
-        ))}
-      </ul>
-      <ul className={clsx("grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3", isLoadingProjects && "hidden")}>
+      <ul className="grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3">
         {PROJECT_ITEMS.map((item) => (
           <li key={item.title} className="max-w-[230px] text-gray-700 dark:bg-slate-100 rounded-sm border">
             <div className="grid place-items-center h-24">
-              <Image src={item.imageURL || ""} alt={item.title} width={230} height={96} />
+              <Image src={item.image} alt={item.title} placeholder="blur" width={230} height={96} />
             </div>
             <p className="p-2 text-sm border-t dark:border-slate-300">{item.title}</p>
             <div className="flex gap-4 justify-center mb-2 text-sm">
