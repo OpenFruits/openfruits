@@ -11,13 +11,21 @@ const Experience: NextPage = () => {
       </Head>
 
       <div className="prose">
-        <h4 className={textClass}>2020.05 - 2020.09</h4>
+        <h4 className={textClass}>2022.04 - </h4>
         <ul className={textClass}>
-          <li>案件：生産管理システムの開発</li>
-          <li>担当業務：機能追加、プログラム修正</li>
-          <li>使用技術：Java</li>
+          <li>案件：保育ICTサービスのエンハンス開発</li>
+          <li>担当業務：サービス拡充におけるフロントエンド実装</li>
+          <li>使用技術：React・TypeScript</li>
         </ul>
-        <h4 className={textClass}>2020-9 - 2021-3</h4>
+
+        <h4 className={textClass}>2021.04 - 2022.03</h4>
+        <ul className={textClass}>
+          <li>案件：体育会向け就活支援サービスの開発</li>
+          <li>担当業務：企画、要件定義、設計、開発、リリース</li>
+          <li>使用技術：Next.js・TypeScript・Firebase</li>
+        </ul>
+
+        <h4 className={textClass}>2020.09 - 2021.03</h4>
         <ul className={textClass}>
           <li>案件：勤怠管理システムのバージョンアップ</li>
           <li>
@@ -29,11 +37,12 @@ const Experience: NextPage = () => {
           </li>
           <li>使用技術：React・TypeScript・Scala</li>
         </ul>
-        <h4 className={textClass}>2021.04 -</h4>
+
+        <h4 className={textClass}>2020.05 - 2020.09</h4>
         <ul className={textClass}>
-          <li>案件：体育会向け就活支援サービスの開発</li>
-          <li>担当業務：企画、要件定義、設計、開発、リリース</li>
-          <li>使用技術：Next.js・TypeScript・Firebase</li>
+          <li>案件：生産管理システムの開発</li>
+          <li>担当業務：機能追加、プログラム修正</li>
+          <li>使用技術：Java</li>
         </ul>
       </div>
     </>
